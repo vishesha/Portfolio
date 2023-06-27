@@ -7,12 +7,11 @@ const Avatar = () => {
   return (
     <div>
       <img src={AvatarImg} alt="Vishesha Sadu" className={classes.avatarImg} />
-
       <img
         style={{
           backgroundColor: "transparent",
           align: "bottom",
-          marginTop: "70px",
+          marginTop: "20px",
           marginLeft: "50px",
         }}
         width="75%"

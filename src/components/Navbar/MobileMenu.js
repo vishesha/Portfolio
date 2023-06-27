@@ -41,6 +41,9 @@ const MobileMenu = ({ open, onClose, onOpen }) => {
           <ListItem {...listItemProps} to="about">
             {t("menu_about")}
           </ListItem>
+          <ListItem {...listItemProps} to="skills">
+            Skills
+          </ListItem>
           <ListItem {...listItemProps} to="experience">
             {t("menu_experience")}
           </ListItem>
@@ -61,12 +64,12 @@ const MobileMenu = ({ open, onClose, onOpen }) => {
               {t("menu_resume")}
             </Button>
           </ListItem>
-          <ListItem className={classes.btnContainer}>
-            <LangSelector onClose={onClose} />
-          </ListItem>
           {/* <ListItem className={classes.btnContainer}>
-                        <DarkModeSwitcher onClose={onClose} />
-                    </ListItem> */}
+            <LangSelector onClose={onClose} />
+          </ListItem> */}
+          <ListItem className={classes.btnContainer}>
+            <DarkModeSwitcher onClose={onClose} />
+          </ListItem>
           <Divider />
         </List>
       </div>
