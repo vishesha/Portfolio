@@ -159,6 +159,7 @@ const useStyles = makeStyles((theme) => ({
     height: 350,
     overflow: "hidden",
     cursor: "pointer",
+    //backgroundColor: "#DA70D6",
     backgroundColor: theme.palette.primary.main,
   },
 
