@@ -8,6 +8,7 @@ import {
   Link,
   useTheme,
   useMediaQuery,
+  Button,
 } from "@material-ui/core";
 import { Language, Facebook, Instagram } from "@material-ui/icons";
 import { experienceList } from "../../data";
@@ -27,7 +28,7 @@ const StyledTabs = () => {
 
   return (
     <div className={classes.root}>
-      <Tabs
+      {/* <Tabs
         orientation={isMobile ? "horizontal" : "vertical"}
         value={value}
         onChange={handleChange}
@@ -37,7 +38,49 @@ const StyledTabs = () => {
         scrollButtons="auto" // Enable scroll buttons when needed
       >
         {experienceList.map((elem) => (
-          <Tab label={elem.company} key={elem.id} />
+          // <Tab label={elem.company} key={elem.id} />
+          <Tab
+            label={
+              <Button
+                variant={value === elem.id ? "contained" : "outlined"}
+                color={value === elem.id ? "primary" : "default"}
+                onClick={() => setValue(elem.id)}
+              >
+                {elem.company}
+              </Button>
+            }
+            key={elem.id}
+          />
+        ))}
+      </Tabs> */}
+
+      <Tabs
+        variant="scrollable" // Allow horizontal scrolling on small screens
+        orientation={isMobile ? "horizontal" : "vertical"}
+        value={value}
+        onChange={handleChange}
+        className={classes.tabs}
+        classes={{ indicator: classes.indicator }}
+        centered={!isMobile} // Center the tabs on larger screens
+        scrollButtons={isMobile ? "auto" : "off"} // Hide scroll buttons on larger screens
+      >
+        {experienceList.map((elem) => (
+          <Tab
+            disableRipple // Disable ripple effect on tabs
+            label={
+              <Button
+                disableElevation // Disable elevation on buttons
+                variant={value === elem.id ? "contained" : "outlined"}
+                color={value === elem.id ? "primary" : "default"}
+                onClick={() => setValue(elem.id)}
+                className={classes.tabButton} // Add custom styles to the button
+              >
+                {elem.company}
+              </Button>
+            }
+            key={elem.id}
+            className={classes.tab} // Add custom styles to the tab
+          />
         ))}
       </Tabs>
       <div className={classes.tabPanels}>
